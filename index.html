@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title> calculator </title>
+    
+    <style>
+        #container
+        {
+            width: 400px;
+            height: 500px;
+            background-color: azure;
+            display: block;
+            margin: auto;
+            padding-top: 10px;
+        }
+        #display
+        {
+          width: 90%;
+            height: 50px; 
+            background-color: white;
+            display: block;
+            margin:  auto;
+           
+        }
+        
+        #input
+        {
+            width: 90%;
+            height: 400px; 
+            
+            display: block;
+            margin:  auto;
+            padding-top: 15px;
+        }
+        #input input
+        {
+          width: 32%;
+          height: 50px;   
+          display: inline-block;
+            margin: 5px 1px;
+        }
+        #input input:last-child
+        {
+          width: 100%;
+          height: 50px;   
+          display: inline-block;
+            margin: 5px 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id ="container">
+        <input type='textarea' id = 'display' type='number'>
+    <div id='input'>
+        
+        <input type= button value="9" onclick="addToScreen(9)">
+        <input type= button value="8" onclick="addToScreen(8)">
+        <input type= button value="7" onclick="addToScreen(7)">
+        <input type= button value="6" onclick="addToScreen(6)">
+         <input type= button value="5" onclick="addToScreen(5)">
+        <input type= button value="4" onclick="addToScreen(4)">
+        <input type= button value="3" onclick="addToScreen(3)">
+        <input type= button value="2" onclick="addToScreen(2)">
+         <input type= button value="1" onclick="addToScreen(1)">
+        <input type= button value="0" onclick="addToScreen(0)">
+        <input type= button value="00 " onclick="addToScreen('00')">
+        <input type= button value="+" onclick="addToScreen('+')">
+        <input type= button value="-" onclick="addToScreen('-')">
+        <input type= button value="*" onclick="addToScreen('*')">
+        <input type= button value="/" onclick="addToScreen('/')">
+        <input type= button value="." onclick="addToScreen('.')">
+        <input type= button value="c" onclick="addToScreen('c')">
+        <input type= button value="<-" onclick="back()">
+        <input type= button value="=" onclick="calculate()">
+     </div>
+    </div>
+    <script>
+        var display = document.getElementById('display');
+        var addToScreen = function(x)
+        {
+         display.value += x; 
+            if(x == 'c'){
+                display.value = ''
+            }; 
+        };
+        var calculate = function(){
+          var calc = eval(display.value) ;
+            display.value = calc ;
+        };
+        function back() {
+    var value = document.getElementById("display").value;
+    document.getElementById("display").value = value.substr(0, value.length - 1);
+}
+    </script>
+</body>
+</html>
